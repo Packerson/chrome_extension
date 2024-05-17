@@ -26,6 +26,7 @@
     "activeTab",
     "scripting",
     "<all_urls>",
-    "alarms"
+    "alarms",
+    "notifications"
   ]
 }

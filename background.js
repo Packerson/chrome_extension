@@ -9,9 +9,11 @@
 //   }
 // }
 
-import fetchLocations from './api/fetchLocations.js';
+import { fetchLocations } from './api/fetchLocations.js';
+import { fetchOpenSlots } from './api/fetchOpenSlots.js';
 
 const ALARM_JOB_NAME = 'GlobalEntryAlarm';
+let cachedPrefs = {};
 
 
 // fetchLocations() is called when the extension is installed
@@ -40,6 +42,7 @@ chrome.runtime.onMessage.addListener(data => {
 const handleOnStop = () => {
   setRunningStatus(false);
   stopAlarm();
+  cachedPrefs = {};
   console.log('onStop');
 }
 
@@ -47,8 +50,9 @@ const handleOnStop = () => {
 // Save the prefs to the storage
 const handleOnStart = (prefs) => {
   console.log('onStart:', prefs);
-  setRunningStatus(true);
+  cachedPrefs = prefs;
   chrome.storage.local.set( prefs );
+  setRunningStatus(true);
   createAlarm();
 }
 
@@ -76,5 +80,6 @@ const stopAlarm = () => {
 
 
 chrome.alarms.onAlarm.addListener(() => {
+  fetchOpenSlots(cachedPrefs);
   console.log('onAlarm...');
 });
