@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Global Entry Drops TEST",
+  "description": "Automatically refreshes TEST.",
+  "version": "1.0",
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "19": "images/ur_19.png",
+      "38": "images/ur_38.png"
+    },
+    "default_title": "+TAG"
+  },
+  "icons": {
+    "16": "images/ur_16.png",
+    "32": "images/ur_32.png",
+    "48": "images/ur_48.png",
+    "128": "images/ur_128.png"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": [
+    "storage"
+  ]
+}
