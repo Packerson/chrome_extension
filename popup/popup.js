@@ -152,4 +152,3 @@ const setLocations = (locations) => {
     locationIdElement.appendChild(option);
   })
 };
-
