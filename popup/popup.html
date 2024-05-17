@@ -6,15 +6,15 @@
   <link rel="stylesheet" href="bulma.min.css">
   <title>Document</title>
 </head>
-<body style="height: 90%; width: 90%">
+<body style="height: 90%; width: 95%">
 
   <div class="container m-3">
     <h1 class="title"> Global Entry TEST</h1>
 
     <div class="field">
       <label class="label">Status</label>
-      <span class="tag is-success">Running</span>
-      <span class="tag is-danger">Stopped</span>
+      <span id="runningSpan" class="tag is-success">Running</span>
+      <span id="stoppedSpan" class="tag is-danger">Stopped</span>
     </div>
   </div>
 
@@ -23,10 +23,9 @@
     <div class="field">
       <label class="label">Location ID</label>
       <div class="select">
-        <select id="locationId">
-
-        </select>
+        <select id="locationId"></select>
       </div>
+      <p id="locationIdError" class="help is-danger" style="display: None;">Please select a valid location</p>
     </div>
 
     <div class="field">
@@ -34,6 +33,8 @@
       <div class="control">
         <input type="date" class="input" id="startDate">
       </div>
+
+      <p id="startDateError" class="help is-danger" style="display: None;">Please select a valid start date</p>
     </div>
 
     <div class="field">
@@ -42,6 +43,8 @@
         <input type="date" class="input" id="endDate">
       </div>
     </div>
+
+    <p id="endDateError" class="help is-danger" style="display: None;">Please select a valid end date</p>
   </div>
 
   <div class="container m-3">
