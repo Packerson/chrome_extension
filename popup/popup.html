@@ -23,33 +23,37 @@
     <div class="field">
       <label class="label">Location ID</label>
       <div class="select">
-        <select></select>
+        <select id="locationId">
+
+        </select>
       </div>
     </div>
 
     <div class="field">
       <label class="label">Start date</label>
       <div class="control">
-        <input type="date" class="input">
+        <input type="date" class="input" id="startDate">
       </div>
     </div>
 
     <div class="field">
       <label class="label">End date</label>
       <div class="control">
-        <input type="date" class="input">
+        <input type="date" class="input" id="endDate">
       </div>
     </div>
   </div>
 
   <div class="container m-3">
-    <button class="button is-success is-fullwidth">Save & Start</button>
+    <button class="button is-success is-fullwidth" id="startButton">Save & Start</button>
   </div>
 
   <div class="container m-3">
-    <button class="button is-danger is-fullwidth">Stop</button>
+    <button class="button is-danger is-fullwidth" id="stopButton">Stop</button>
   </div>
 
 
 </body>
+
+<script src="popup.js"></script>
 </html>

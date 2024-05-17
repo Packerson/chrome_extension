@@ -21,17 +21,11 @@
     "service_worker": "background.js",
     "type": "module"
   },
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["contentScript.js"],
-      "css": ["modal.css"]
-    }
-  ],
   "permissions": [
     "storage",
     "activeTab",
     "scripting",
-    "<all_urls>"
+    "<all_urls>",
+    "alarms"
   ]
 }
