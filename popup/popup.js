@@ -152,3 +152,7 @@ const setLocations = (locations) => {
     locationIdElement.appendChild(option);
   })
 };
+
+
+
+// https://github.com/nfzohar/chrome-extension-with-modal/blob/main/res/content/html/index.html
