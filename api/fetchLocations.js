@@ -13,7 +13,6 @@ export const fetchLocations = () => {
       // Sort the locations by name
       filteredLocations.sort((a, b) => a.name.localeCompare(b.name));
       chrome.storage.local.set({ locations: filteredLocations });
-      console.log('Success:', filteredLocations);
     })
     .catch((error) => {
       console.error('Error:', error);

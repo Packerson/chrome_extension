@@ -145,7 +145,7 @@ startButton.onclick = () => {
   });
 }
 
-stopButton.onclick = function() {
+stopButton.onclick = function () {
   handleOnStopState();
   chrome.runtime.sendMessage({
     event: 'onStop'
@@ -154,7 +154,7 @@ stopButton.onclick = function() {
 
 // Get the values from the storage
 chrome.storage.local.get(
-  ['locationId', 'startDate', 'endDate', 'locations', 'isRunning' ],
+  ['locationId', 'startDate', 'endDate', 'locations', 'isRunning'],
   (result) => {
     const { locationId, startDate, endDate, locations, isRunning } = result;
 
@@ -175,7 +175,8 @@ chrome.storage.local.get(
     } else {
       handleOnStopState()
     }
-});
+  }
+);
 
 
 // {
@@ -200,4 +201,6 @@ const today = spacetime.now().startOf('day').format();
 startDateElement.setAttribute('min', today);
 endDateElement.setAttribute('min', today);
 
+
+// modal
 // https://github.com/nfzohar/chrome-extension-with-modal/blob/main/res/content/html/index.html

@@ -37,7 +37,6 @@ chrome.runtime.onMessage.addListener(data => {
       handleOnStop();
       break;
     default:
-      console.log('Unknown event', data.event);
       break
   }
 });
@@ -46,13 +45,13 @@ chrome.runtime.onMessage.addListener(data => {
 // notification click event
 chrome.notifications.onClicked.addListener(() => {
   chrome.tabs.create({
-    url: 'https://ttp.cbp.dhs.gov/schedulerapi/locations/9240/slots?startTimestamp=2023-02-11T00%3A00%3A00&endTimestamp=2023-03-22T00%3A00%3A00'}
+    url: 'https://ttp.cbp.dhs.gov/schedulerapi/locations/9240/slots?startTimestamp=2023-02-11T00%3A00%3A00&endTimestamp=2023-03-22T00%3A00%3A00'
+  }
   );
 });
 
 
 chrome.alarms.onAlarm.addListener(() => {
-  console.log('onAlarm...');
   openSlotsJob();
 });
 
@@ -60,16 +59,14 @@ const handleOnStop = () => {
   setRunningStatus(false);
   stopAlarm();
   cachedPrefs = {};
-  console.log('onStop');
   firstApptTimeStamp = null;
 }
 
 
 // Save the prefs to the storage
 const handleOnStart = (prefs) => {
-  console.log('onStart:', prefs);
   cachedPrefs = prefs;
-  chrome.storage.local.set( prefs );
+  chrome.storage.local.set(prefs);
   setRunningStatus(true);
   createAlarm();
 }
@@ -94,7 +91,6 @@ const createAlarm = () => {
 
 const stopAlarm = () => {
   chrome.alarms.clearAll();
-  console.log('Alarm stopped');
 };
 
 
